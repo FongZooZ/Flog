@@ -109,7 +109,12 @@ var createPost = function createPost(data, callback) {
 	var finalData = data;
 	finalData.create = new Date();
 
-	Post.create(finalData, callback);
+	Post.create(finalData, function(err, post) {
+		if (err) {
+			return callback(err);
+		}
+		callback(null, post);
+	});
 }
 
 /**
@@ -205,6 +210,7 @@ var hardDeletePost = function hardDeletePost(postId, callback) {
 
 module.exports = {
 	getPostById: getPostById,
+	getPostsByUser: getPostsByUser,
 	getAllPost: getAllPost,
 	createPost: createPost,
 	updatePost: updatePost,
