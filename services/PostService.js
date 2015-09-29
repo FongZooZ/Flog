@@ -6,7 +6,7 @@ var Post = require('./models/Post');
  * @param  {Function}	callback 	Callback function
  * @return {void}
  */
-var getPost = function getPost(postId, callback) {
+var getPostById = function getPostById(postId, callback) {
 
 }
 
@@ -61,7 +61,7 @@ var hardDeletePost = function hardDeletePost(postId, callback) {
 }
 
 module.exports = {
-	getPost: getPost,
+	getPostById: getPostById,
 	getAllPost: getAllPost,
 	createPost: createPost,
 	updatePost: updatePost,

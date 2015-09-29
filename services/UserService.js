@@ -6,7 +6,7 @@ var User = require('./models/User');
  * @param  {Function}	callback 	Callback function
  * @return {void}
  */
-var getUser = function getUser(userId, callback) {
+var getUserById = function getUserById(userId, callback) {
 
 }
 
@@ -61,7 +61,7 @@ var hardDeleteUser = function hardDeleteUser(userId, callback) {
 }
 
 module.exports = {
-	getUser: getUser,
+	getUserById: getUserById,
 	getAllUser: getAllUser,
 	createUser: createUser,
 	updateUser: updateUser,
