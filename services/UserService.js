@@ -83,6 +83,7 @@ var createUser = function createUser(data, callback) {
 		// currently not handle
 		// return callback(new Error('Email is null'));
 	}
+	data.admin = false;
 	data.verified = false;
 
 	User.create(data, function(err, user) {
@@ -128,6 +129,28 @@ var activateUser = function activateUser(userId, callback) {
 
 		user.verified = true;
 		user.save();
+	});
+}
+
+/**
+ * Set admin for an user
+ * @param {ObjectId}	userId 		user to set admin
+ * @param {Function}	callback 	Callback function
+ */
+var setAdmin = function setAdmin(userId, callback) {
+	if (!userId) {
+		return callback(new Error('userId is null'));
+	}
+	User.findOneAndUpdate({
+		_id: userId
+	}, {
+		admin: true
+	}, function(err, user) {
+		if (err) {
+			return callback(err);
+		}
+		delete user.password;
+		callback(null, user);
 	});
 }
 

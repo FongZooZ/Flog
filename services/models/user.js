@@ -5,6 +5,7 @@ var userSchema = new Schema({
   username: String,
   password: String,
   email: String,
+  admin: Boolean,
   verified: Boolean
 });
 
